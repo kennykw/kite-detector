@@ -2,10 +2,11 @@
 
 OpenCV object detector trained to recognize kites.  The detector was trained on 7-14 M LEI kites flying over water or snow.
 
-There is a small example program which opens all images in a directory, places a red bounding box over all detetced kites, and then dislpays each image with bounding boxes.
-
+A small example program is provided which demonstrates how to use the classifier (see src/kite_classifier.cpp) .  The example program opens all images in a directory, places a red bounding box over all 
+detected kites, and then dislpays each image with bounding boxes.
 
 ![Kites with red bounding boxes](http://beavercreekconsulting.com/img/kite-detector.png) 
+
 
 ## Installing
 
@@ -15,6 +16,7 @@ Install OpenCV first.  Then:
     cd build
     cmake ..
     make
+
 
 ## Running
 
