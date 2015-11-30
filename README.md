@@ -10,7 +10,7 @@ detected kites, and then dislpays each image with bounding boxes.
 
 ## Installing
 
-Install OpenCV first.  Then:
+Install [OpenCV](http://docs.opencv.org/3.0.0/df/d65/tutorial_table_of_content_introduction.html) first.  Then:
 
     mkdir build
     cd build
