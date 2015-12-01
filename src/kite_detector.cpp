@@ -17,14 +17,21 @@ void usage()
   cerr <<  "Loads images for a directory, detects kites and displays the images with a" << endl;
   cerr <<  "red bounding box around detected kites." << endl;
   cerr <<  "Usage:" << endl;
-  cerr <<  "kite_detector <classifer> <image-dir>" << endl;
+  cerr <<  "kite_detector <classifer> <src-image-dir> [<dest-image-dir>]" << endl;
 }
 
 
 int main(int argc, char* argv[])
 {
-
-  if(argc != 3) {usage(); exit(-1);}
+  bool write_output = false;
+  string output_dir_name;
+  if(!(argc == 3 || argc == 4)) {usage(); exit(-1);}
+  if(argc == 4)
+    {
+      write_output = true;
+      output_dir_name = argv[3];
+      cout << "Writing output to " << output_dir_name << endl;
+    }
 
   // load classifier
   CascadeClassifier classifier;
@@ -51,6 +58,12 @@ int main(int argc, char* argv[])
       }
 
       detectAndDisplay(I, classifier, image_path);
+      if(write_output)
+	{
+	  string output_image_path = output_dir_name + "/" + ent->d_name;
+	  cout << "Writing to " << output_image_path << endl;
+	  imwrite(output_image_path, I);
+	}
       int c = waitKey();
       if( (char)c == 27 ) { break; }
     }
@@ -79,6 +92,6 @@ void detectAndDisplay(Mat frame, CascadeClassifier classifier, string image_name
       rectangle(frame, faces[i], Scalar(0, 0, 255), 1, CV_AA, 0);
     }
   //-- Show what you got
-  namedWindow(image_name, WINDOW_NORMAL);
-  imshow(image_name, frame );
+  //namedWindow(image_name, WINDOW_NORMAL);
+  //imshow(image_name, frame );
 }
