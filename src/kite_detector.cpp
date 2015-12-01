@@ -9,7 +9,7 @@
 using namespace std;
 using namespace cv;
 
-void detectAndDisplay(Mat frame, CascadeClassifier classifier, string image_name);
+void detectAndDisplay(Mat frame, CascadeClassifier classifier, string image_name, bool show_images);
 
 void usage()
 {
@@ -23,6 +23,7 @@ void usage()
 
 int main(int argc, char* argv[])
 {
+  bool show_images = true;
   bool write_output = false;
   string output_dir_name;
   if(!(argc == 3 || argc == 4)) {usage(); exit(-1);}
@@ -32,6 +33,12 @@ int main(int argc, char* argv[])
       output_dir_name = argv[3];
       cout << "Writing output to " << output_dir_name << endl;
     }
+
+    if (show_images) 
+    {
+      namedWindow("Kite Detector", WINDOW_NORMAL);
+    }
+
 
   // load classifier
   CascadeClassifier classifier;
@@ -57,7 +64,7 @@ int main(int argc, char* argv[])
 	continue;
       }
 
-      detectAndDisplay(I, classifier, image_path);
+      detectAndDisplay(I, classifier, image_path, show_images);
       if(write_output)
 	{
 	  string output_image_path = output_dir_name + "/" + ent->d_name;
@@ -76,7 +83,7 @@ int main(int argc, char* argv[])
 }
 
 
-void detectAndDisplay(Mat frame, CascadeClassifier classifier, string image_name)
+void detectAndDisplay(Mat frame, CascadeClassifier classifier, string image_name, bool show_images)
 {
   std::vector<Rect> faces;
   Mat frame_gray;
@@ -91,7 +98,9 @@ void detectAndDisplay(Mat frame, CascadeClassifier classifier, string image_name
       cout << "Rectangle " << faces[i] << endl;
       rectangle(frame, faces[i], Scalar(0, 0, 255), 1, CV_AA, 0);
     }
-  //-- Show what you got
-  //namedWindow(image_name, WINDOW_NORMAL);
-  //imshow(image_name, frame );
+  if (show_images) 
+    {
+      imshow("Kite Detector", frame );
+      namedWindow("Kite Detector", WINDOW_NORMAL);
+    }
 }
