@@ -1,0 +1,6 @@
+{
+  "name": "Kite-detector",
+  "tagline": "OpenCV Object Detector trained to recognize flying LEI kites over water or snow",
+  "body": "# kite-detector\r\n\r\nOpenCV object detector trained to recognize kites.  The detector was trained on 7-14 M LEI kites flying over water or snow.\r\n\r\nA small example program is provided which demonstrates how to use the classifier (see src/kite_classifier.cpp) .  The example program opens all images in a directory, places a red bounding box over all \r\ndetected kites, and then dislpays each image with bounding boxes.\r\n\r\n![Kites with red bounding boxes](http://beavercreekconsulting.com/img/kite-detector.png) \r\n\r\n\r\n## Installing\r\n\r\nInstall [OpenCV](http://docs.opencv.org/3.0.0/df/d65/tutorial_table_of_content_introduction.html) first.  Then:\r\n\r\n    mkdir build\r\n    cd build\r\n    cmake ..\r\n    make\r\n\r\n\r\n## Running\r\n\r\n    build/src/kite_detector classifier/cascade.xml <path-to-image-dir>\t\t\t",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

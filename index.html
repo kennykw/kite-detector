@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Kite-detector : OpenCV Object Detector trained to recognize flying LEI kites over water or snow">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Kite-detector</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/martykube/kite-detector">View on GitHub</a>
+
+          <h1 id="project_title">Kite-detector</h1>
+          <h2 id="project_tagline">OpenCV Object Detector trained to recognize flying LEI kites over water or snow</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/martykube/kite-detector/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/martykube/kite-detector/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="kite-detector" class="anchor" href="#kite-detector" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>kite-detector</h1>
+
+<p>OpenCV object detector trained to recognize kites.  The detector was trained on 7-14 M LEI kites flying over water or snow.</p>
+
+<p>A small example program is provided which demonstrates how to use the classifier (see src/kite_classifier.cpp) .  The example program opens all images in a directory, places a red bounding box over all 
+detected kites, and then dislpays each image with bounding boxes.</p>
+
+<p><img src="http://beavercreekconsulting.com/img/kite-detector.png" alt="Kites with red bounding boxes"> </p>
+
+<h2>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing</h2>
+
+<p>Install <a href="http://docs.opencv.org/3.0.0/df/d65/tutorial_table_of_content_introduction.html">OpenCV</a> first.  Then:</p>
+
+<pre><code>mkdir build
+cd build
+cmake ..
+make
+</code></pre>
+
+<h2>
+<a id="running" class="anchor" href="#running" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running</h2>
+
+<pre><code>build/src/kite_detector classifier/cascade.xml &lt;path-to-image-dir&gt;          
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Kite-detector maintained by <a href="https://github.com/martykube">martykube</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
