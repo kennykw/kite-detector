@@ -11759,11 +11759,11 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Tracking cameras are getting very popular. One example is the <a href="https://shop.soloshot.com/">Soloshot</a>, which is a camera, gimball, and tracking software system that follows a sports player. A similar solution is quadcopter <a href="http://www.dji.com/intelligent-flight-modes#gsSmart">follow me mode</a> in which the drone will track a moving person. I've been thinking about building a tracking camera for Kitesurfers. As a first step I built an image classifier for kites:</p>
 <p><img src="kite-detector-money.png" alt="Kiter riding a hydrofoil with target locked kite"></p>
-<p>This project was more of a heat check than a full blow effort to build a high quality classifier.  I had not tried image classification in several years.  The state of the art has moved quickly in the last few years.  High quality facial <a href="https://www.intelli-vision.com/security/face-recognition/">reconigition</a> is common.  Human level accuracy on <a href="http://image-net.org/">Image Net</a> has been achived <a href="https://github.com/KaimingHe/deep-residual-networks">recently</a>.</p>
-<p>I didn't use state of the art techniques such as Convolutional Neural Networks.  Instead I used the builtin OpenCV classifier which was laying around on my Linux box.  This turned out to be OpenCV 2.</p>
+<p>This project was more of a heat check than a full blown effort to build a high quality classifier.  I had not tried image classification in several years.  The state of the art has moved quickly in the last few years.  High quality facial <a href="https://www.intelli-vision.com/security/face-recognition/">reconigition</a> is common.  Human level accuracy on <a href="http://image-net.org/">Image Net</a> has been achived <a href="https://github.com/KaimingHe/deep-residual-networks">recently</a>.</p>
+<p>I did not start with a state-of-the art technique such as a Convolutional Neural Network.  Instead I used the builtin OpenCV classifier which was laying around on my Linux box.  This turned out to be OpenCV 2.4ish.</p>
 <p>I used the HAAR clasifier which is described <a href="http://docs.opencv.org/2.4/modules/objdetect/doc/cascade_classification.html">here</a>.  The algorithm consists of a HAAR feature extractor and a cascade classifier.</p>
-<p>The classifer is trained on a small images, something like 20x20 pixels.  The classifer reports a yes or no indicating if the image contains the object of interest (a kite in this case).</p>
-<p>To process a larger image the 20x20 pixel mask is tried out at each location in the larger image and also over a range of scales of the image.  The size of the mask dictates the smallest feature that can be detected in an image.</p>
+<p>The classifer is trained on a small image, about 20x20 pixels.  The classifer reports a yes or no indicating if the image contains the object of interest (a kite in this case).</p>
+<p>To process a larger image the 20x20 pixel mask is tried out at each location in the larger image and also over a range of image scales.  The size of the mask dictates the smallest feature that can be detected in an image.</p>
 <p>The training set for the classifer consist of a small set of positive images and a larger set of negative images that do not contain the object.  The layers of the cascade are trained to first accept all positive images and to do an increasingly better job of rejecting negative images.</p>
 
 </div>
@@ -11791,7 +11791,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c"># show a sample of the raw images</span>
@@ -11818,7 +11818,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c"># use a fixed sample of images</span>
